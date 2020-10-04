@@ -1,4 +1,6 @@
 steps:
+  - name: 'gcr.io/cloud-builders/mvn'
+    args: ['install']
   - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "gcr.io/docker-test/test-springboot", "."]
     timeout: 500s
