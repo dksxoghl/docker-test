@@ -6,7 +6,7 @@ steps:
     entrypoint: gradle
     args: ["assemble"]
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/docker-test/test-springboot", "."]
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/test-springboot", "."]
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/test-springboot']
     timeout: 500s
