@@ -8,7 +8,7 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "gcr.io/docker-test/test-springboot", "."]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/docker-test/test-springboot:latest']
+    args: ['push', 'gcr.io/$PROJECT_ID/test-springboot']
     timeout: 500s
 
 #  - name: "gcr.io/cloud-builders/docker"
