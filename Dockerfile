@@ -15,7 +15,6 @@ ARG JAR_FILE=build/libs/test-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} test-springboot.jar
-
 # Run the jar file
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/test-springboot.jar"]
 
