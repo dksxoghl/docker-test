@@ -20,7 +20,7 @@ steps:
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
-      - 'DEPLOYMENT_NAME= test-springboot'
+      - 'CLOUDSDK_CONTAINER_DEPLOYMENT_NAME= test-springboot'
     timeout: 500s
 
 #  - name: "gcr.io/cloud-builders/docker"
