@@ -13,7 +13,7 @@ steps:
     args:
       - set
       - image
-      - deployment/test-springboot
+      - deployment/test-springboot-698bb48484
       - test-springboot=gcr.io/$PROJECT_ID/test-springboot
       - -n
       - springboot
