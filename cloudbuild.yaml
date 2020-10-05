@@ -13,13 +13,14 @@ steps:
     args:
       - set
       - image
-      - deployment/test-springboot-cluster
+      - deployment/$DEPLOYMENT_NAME
       - test-springboot=gcr.io/$PROJECT_ID/test-springboot
       - -n
       - springboot
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
+      - 'DEPLOYMENT_NAME= test-springboot'
     timeout: 500s
 
 #  - name: "gcr.io/cloud-builders/docker"
