@@ -13,7 +13,7 @@ steps:
     args:
       - set
       - image
-      - deployment/k8s_container
+      - deployment
       - test-springboot=gcr.io/$PROJECT_ID/test-springboot
       - -n
       - springboot
