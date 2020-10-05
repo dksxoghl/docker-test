@@ -13,8 +13,8 @@ steps:
     args:
       - set
       - image
-      - deployment/test-springboot-sha256-1
-      - test-springboot=gcr.io/test-springboot-sha256-1/test-springboot
+      - deployment/$DEPLOYMENT_NAME
+      - test-springboot=gcr.io/$DEPLOYMENT_NAME/test-springboot
       - -n
       - springboot
     env:
