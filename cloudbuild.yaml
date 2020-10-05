@@ -13,10 +13,10 @@ steps:
     args:
       - set
       - image
-      - deployment/My Project
+      - deployment/spring-boot-container
       - test-springboot=gcr.io/$PROJECT_ID/test-springboot
       - -n
-      - springboot
+      - spring-boot
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
