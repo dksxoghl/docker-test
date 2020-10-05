@@ -18,7 +18,7 @@ steps:
       - -n
       - springboot
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
     timeout: 500s
 
