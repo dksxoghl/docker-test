@@ -9,6 +9,17 @@ steps:
     args: ["build", "-t", "gcr.io/$PROJECT_ID/test-springboot", "."]
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/test-springboot']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - set
+      - image
+      - deployment/test-springboot
+      - test-springboot=gcr.io/$PROJECT_ID/test-springboot
+      - -n
+      - springboot
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
     timeout: 500s
 
 #  - name: "gcr.io/cloud-builders/docker"
