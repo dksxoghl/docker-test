@@ -1,68 +1,68 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: spring-boot-container
-  name: spring-boot-container
-  namespace: spring-boot
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: spring-boot-container
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      labels:
-        app: spring-boot-container
-    spec:
-      containers:
-        - image: gcr.io/neon-vigil-291510/github.com/dksxoghl/docker-test
-          imagePullPolicy: IfNotPresent
-          name: test-springboot-sha256-1
----
-apiVersion: autoscaling/v2beta1
-kind: HorizontalPodAutoscaler
-metadata:
-  labels:
-    app: spring-boot-container
-  name: spring-boot-container-hpa-hah3
-  namespace: spring-boot
-spec:
-  maxReplicas: 5
-  metrics:
-    - resource:
-        name: cpu
-        targetAverageUtilization: 80
-      type: Resource
-  minReplicas: 1
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: spring-boot-container
----
-apiVersion: v1
-kind: Service
-metadata:
-  finalizers:
-    - service.kubernetes.io/load-balancer-cleanup
-  labels:
-    app: spring-boot-container
-  name: spring-boot-container-service
-  namespace: spring-boot
-spec:
-  clusterIP: 10.4.7.231
-  externalTrafficPolicy: Cluster
-  ports:
-    - nodePort: 30768
-      port: 80
-      protocol: TCP
-      targetPort: 8080
-  selector:
-    app: spring-boot-container
-  sessionAffinity: None
-  type: LoadBalancer
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  labels:
+#    app: spring-boot-container
+#  name: spring-boot-container
+#  namespace: spring-boot
+#spec:
+#  replicas: 3
+#  selector:
+#    matchLabels:
+#      app: spring-boot-container
+#  strategy:
+#    rollingUpdate:
+#      maxSurge: 25%
+#      maxUnavailable: 25%
+#    type: RollingUpdate
+#  template:
+#    metadata:
+#      labels:
+#        app: spring-boot-container
+#    spec:
+#      containers:
+#        - image: gcr.io/neon-vigil-291510/github.com/dksxoghl/docker-test
+#          imagePullPolicy: IfNotPresent
+#          name: test-springboot-sha256-1
+#---
+#apiVersion: autoscaling/v2beta1
+#kind: HorizontalPodAutoscaler
+#metadata:
+#  labels:
+#    app: spring-boot-container
+#  name: spring-boot-container-hpa-hah3
+#  namespace: spring-boot
+#spec:
+#  maxReplicas: 5
+#  metrics:
+#    - resource:
+#        name: cpu
+#        targetAverageUtilization: 80
+#      type: Resource
+#  minReplicas: 1
+#  scaleTargetRef:
+#    apiVersion: apps/v1
+#    kind: Deployment
+#    name: spring-boot-container
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  finalizers:
+#    - service.kubernetes.io/load-balancer-cleanup
+#  labels:
+#    app: spring-boot-container
+#  name: spring-boot-container-service
+#  namespace: spring-boot
+#spec:
+#  clusterIP: 10.4.7.231
+#  externalTrafficPolicy: Cluster
+#  ports:
+#    - nodePort: 30768
+#      port: 80
+#      protocol: TCP
+#      targetPort: 8080
+#  selector:
+#    app: spring-boot-container
+#  sessionAffinity: None
+#  type: LoadBalancer
