@@ -18,6 +18,6 @@ ARG JAR_FILE=build/libs/test-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} test-springboot.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/test-springboot.jar"]
-
+#ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/test-springboot.jar"]
+CMD ["./gradlew", "bootRun"]
 #CMD ["./gradlew", "bootRun"] 해보기, postgres이미지 다운 영상참조
