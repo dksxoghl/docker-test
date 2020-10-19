@@ -27,7 +27,7 @@ steps:
   images:
     - 'gcr.io/$PROJECT_ID/docker-compose:latest'
     - 'gcr.io/$PROJECT_ID/docker-compose:${_DOCKER_COMPOSE_VERSION}'
-  tags: ['cloud-builders-community']
+#  tags: ['cloud-builders-community']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/test-springboot:v4']
 #  - name: 'gcr.io/cloud-builders/kubectl'
