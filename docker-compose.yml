@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   db:
     # 컨테이너 이름을 주고 싶다면 작성한다
