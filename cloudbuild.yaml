@@ -12,7 +12,7 @@ steps:
     args: [ 'up', '-d']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['tag', 'test-springboot:v5', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
-  images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
+#  images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/test-springboot:v5']
 #  - name: 'gcr.io/cloud-builders/kubectl'
