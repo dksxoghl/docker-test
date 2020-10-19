@@ -6,9 +6,9 @@ services:
     # container_name: test_database
     image: postgres
     environment:
-      - POSTGRES_PASSWORD: "password"
-      - POSTGRES_USER: "postgres"
-      - POSTGRES_DB: "taehi"
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=taehi
     volumes:
       - ./data:/var/lib/postgresql/data
     ports:
