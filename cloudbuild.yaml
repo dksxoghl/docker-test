@@ -15,18 +15,18 @@ steps:
 #  images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
-#  - name: 'gcr.io/cloud-builders/kubectl'
-#    args:
-#      - set
-#      - image
-#      - deployment/spring-boot-container
-#      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/test-springboot:v4
-#      - -n
-#      - spring-boot
-#    env:
-#      - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-b'
-#      - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
-##      - 'CLOUDSDK_CONTAINER_DEPLOYMENT_NAME= test-springboot'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - set
+      - image
+      - deployment/spring-boot-container
+      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA
+      - -n
+      - spring-boot
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=asia-northeast1-b'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=test-springboot-cluster'
+#      - 'CLOUDSDK_CONTAINER_DEPLOYMENT_NAME= test-springboot'
     timeout: 500s
 
 #  - name: "gcr.io/cloud-builders/docker"
