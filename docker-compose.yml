@@ -4,11 +4,12 @@ services:
   db:
     # 컨테이너 이름을 주고 싶다면 작성한다
     # container_name: test_database
-    image: postgres
-    environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=taehi
+#    image: postgres
+    build: ./database
+#    environment:
+#      - POSTGRES_PASSWORD=password
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_DB=taehi
     volumes:
       - ./data:/var/lib/postgresql/data
     ports:
