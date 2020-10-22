@@ -14,7 +14,7 @@ services:
     ports:
       - 5432:5432
   test-springboot:
-    container_name: test_springboot
+#    container_name: test_springboot
     build: .
     ports:
       - 8080:8080
