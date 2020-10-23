@@ -3,21 +3,22 @@ version: '3'
 services:
   db:
     # 컨테이너 이름을 주고 싶다면 작성한다
-    container_name: sample_db
-#    image: postgres
-    build: ./database
-#    environment:
-#      - POSTGRES_PASSWORD=password
-#      - POSTGRES_USER=postgres
-#      - POSTGRES_DB=taehi
+#    build: ./database
+    image: postgres
+      container_name: sample_db
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_DB=taehi
+        - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - sample_db:/var/lib/postgresql/data
 #    volumes:
 #      - ./data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - my_network
+#    networks:
+#      - my_network
     restart: always
   test-springboot:
 #    container_name: test_springboot
@@ -28,16 +29,16 @@ services:
       - 8080:8080
     depends_on:
       - db
-#    links:
-#      - "db:sample_db"
-    networks:
-      - my_network
+    links:
+      - "db:sample_db"
+#    networks:
+#      - my_network
     restart: always
 volumes:
   sample_db: {}
-networks:
-  my_network:
-    driver: bridge
+#networks:
+#  my_network:
+#    driver: bridge
 #    environment:
 #      - SPRING_PROFILES_ACTIVE=dev
 #      - dbhost=localhost
