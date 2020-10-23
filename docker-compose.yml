@@ -14,8 +14,8 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
-    networks:
-      - my_network
+#    networks:
+#      - my_network
   test-springboot:
 #    container_name: test_springboot
     build: .
@@ -23,11 +23,13 @@ services:
       - 8080:8080
     depends_on:
       - db
-    networks:
-      - my_network
-networks:
-  my_network:
-    driver: bridge
+    links:
+      - "db:db"
+#    networks:
+#      - my_network
+#networks:
+#  my_network:
+#    driver: bridge
 #    environment:
 #      - SPRING_PROFILES_ACTIVE=dev
 #      - dbhost=localhost
