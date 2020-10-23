@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     # 컨테이너 이름을 주고 싶다면 작성한다
-    # container_name: test_database
+    container_name: db
 #    image: postgres
     build: ./database
 #    environment:
