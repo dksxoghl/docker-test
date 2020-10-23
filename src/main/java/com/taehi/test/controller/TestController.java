@@ -8,6 +8,6 @@ public class TestController {
 
     @RequestMapping("/")
     public String hello() {
-        return "Hello, Docker! 7롤링?";
+        return "Hello, Docker! 23롤링?";
     }
 }
