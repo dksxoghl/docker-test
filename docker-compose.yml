@@ -18,6 +18,7 @@ services:
       - "5432:5432"
     networks:
       - my_network
+    restart: always
   test-springboot:
 #    container_name: test_springboot
     build: .
@@ -31,6 +32,7 @@ services:
 #      - "db:sample_db"
     networks:
       - my_network
+    restart: always
 volumes:
   sample_db: {}
 networks:
