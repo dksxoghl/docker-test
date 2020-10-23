@@ -11,18 +11,18 @@ steps:
   - name: 'docker/compose'
     args: [ 'up', '-d']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'workspace_test-springboot', 'gcr.io/$PROJECT_ID/test-springboot:v6']
+    args: ['tag', 'workspace_test-springboot', 'gcr.io/$PROJECT_ID/test-springboot:v7']
 #    args: ['tag', 'workspace_test-springboot', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 #  images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/test-springboot:v6']
+    args: ['push', 'gcr.io/$PROJECT_ID/test-springboot:v7']
 #    args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
       - set
       - image
       - deployment/spring-boot-container
-      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/test-springboot:v6
+      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/test-springboot:v7
 #      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA
       - -n
       - spring-boot

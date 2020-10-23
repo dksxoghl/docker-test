@@ -16,4 +16,8 @@ public class TestController extends JdbcDaoSupport {
     public String hello() {
         return getJdbcTemplate().queryForObject("select h_test from hello where h_id=?", String.class, "a");
     }
+    @RequestMapping("/h")
+    public String hello2() {
+        return "ㅎ..";
+    }
 }
