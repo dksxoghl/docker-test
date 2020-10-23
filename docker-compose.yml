@@ -21,3 +21,7 @@ services:
       - 8080:8080
     depends_on:
       - db
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - dbhost=localhost
+    network_mode: host
