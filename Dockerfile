@@ -1,5 +1,5 @@
 #FROM openjdk:8-jdk-alpine as builder
-FROM java:8
+FROM java:8 as builder
 
 COPY gradlew .
 COPY gradle gradle
