@@ -15,7 +15,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    compile group: 'org.postgresql', name: 'postgresql', version: '9.5.14'
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.4.1212'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
