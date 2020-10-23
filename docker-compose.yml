@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     # 컨테이너 이름을 주고 싶다면 작성한다
-    container_name: db
+    container_name: sample_db
 #    image: postgres
     build: ./database
 #    environment:
@@ -20,11 +20,11 @@ services:
 #    container_name: test_springboot
     build: .
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - db
     links:
-      - "db:db"
+      - "db:sample_db"
 #    networks:
 #      - my_network
 #networks:

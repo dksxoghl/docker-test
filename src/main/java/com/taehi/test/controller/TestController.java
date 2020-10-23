@@ -18,6 +18,6 @@ public class TestController extends JdbcDaoSupport {
     }
     @RequestMapping("/h")
     public String hello2() {
-        return "ㅎ..";
+        return "wq..";
     }
 }
