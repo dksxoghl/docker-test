@@ -25,8 +25,8 @@ services:
       - 8080:8080
     depends_on:
       - db
-    links:
-      - "db:sample_db"
+#    links:
+#      - "db:sample_db"
     networks:
       - my_network
 volumes:
