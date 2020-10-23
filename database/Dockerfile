@@ -1,4 +1,4 @@
-FROM postgres
+FROM postgres:9.5.3
 
 ENV POSTGRES_PASSWORD password
 ENV POSTGRES_USER postgres
