@@ -5,8 +5,8 @@ services:
     # 컨테이너 이름을 주고 싶다면 작성한다
 #    build: ./database
     image: postgres
-      container_name: sample_db
-      environment:
+    container_name: sample_db
+    environment:
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=password
         - POSTGRES_DB=taehi
