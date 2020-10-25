@@ -11,11 +11,11 @@ steps:
   - name: 'docker/compose'
     args: [ 'up', '-d']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'workspace_test-springboot', 'gcr.io/$PROJECT_ID/test-springboot:v30']
+    args: ['tag', 'workspace_test-springboot', 'gcr.io/$PROJECT_ID/test-springboot:v31']
 #    args: ['tag', 'workspace_test-springboot', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 #  images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/test-springboot:v30']
+    args: ['push', 'gcr.io/$PROJECT_ID/test-springboot:v31']
 #    args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/kubectl'
 #    gcr 에서 실행이안되는건가 뭐지 구글링싹다다시
@@ -23,7 +23,7 @@ steps:
       - set
       - image
       - deployment/spring-boot-container
-      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/test-springboot:v30
+      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/test-springboot:v31
 #      - test-springboot-sha256-1=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA
       - -n
       - spring-boot
