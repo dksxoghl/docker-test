@@ -21,7 +21,7 @@ services:
 #      - my_network
     restart: always
   test-springboot:
-#    container_name: test_springboot
+    container_name: test_springboot
     build: .
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
