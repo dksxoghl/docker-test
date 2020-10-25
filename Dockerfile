@@ -1,5 +1,5 @@
-#FROM openjdk:8-jdk-alpine as builder
-FROM java:8 as builder
+FROM openjdk:8-jdk-alpine as builder
+#FROM java:8 as builder
 
 COPY gradlew .
 COPY gradle gradle
@@ -11,8 +11,8 @@ RUN ./gradlew bootjar
 #소스랑 빌드할 실행프로그램 copy -> bootjar 파일 생성 후 -> 다른 도커image에 복사 -> 복사한거 실행
 
 # Start with a base image containing Java runtime
-FROM java:8
-#FROM openjdk:8-jre-alpine
+#FROM java:8
+FROM openjdk:8-jre-alpine
 # Add Author info
 LABEL maintainer="dksxoghl8@gmail.com"
 
