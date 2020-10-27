@@ -3,14 +3,15 @@ version: '3'
 services:
   db:
     # 컨테이너 이름을 주고 싶다면 작성한다
-    build: ./database
-#    image: postgres
+#    build: ./database
+    image: postgres
+    command: postgres -c logging_collector=on -c log_destination=stderr -c log_directory=/logs
     container_name: sample_db
-#    environment:
-#        - POSTGRES_USER=postgres
-#        - POSTGRES_PASSWORD=postgres
-#        - POSTGRES_DB=testdb
-#        - PGDATA=/var/lib/postgresql/data/pgdata
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=testdb
+        - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - sample_db:/var/lib/postgresql/data
 #    volumes:
