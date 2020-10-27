@@ -10,7 +10,7 @@ ENV POSTGRES_DB taehi
 ## Override default postgres config file
 #CMD ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
-#WORKDIR /etc/postgresql/9.3/main
+WORKDIR /etc/postgresql/9.3/main
 #RUN sed -i "s/#listen_addresses='localhost'/listen_addresses='*'/g" postgresql.conf
 #RUN echo "host all all 0.0.0.0/0 password" >> pg_hba.conf
 
