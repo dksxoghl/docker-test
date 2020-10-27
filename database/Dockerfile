@@ -14,7 +14,7 @@ WORKDIR /etc/postgresql/9.3/main
 #RUN sed -i "s/#listen_addresses='localhost'/listen_addresses='*'/g" postgresql.conf
 #RUN echo "host all all 0.0.0.0/0 password" >> pg_hba.conf
 
-RUN sed -i -e"s/^#listen_addresses =.*$/listen_addresses = '*'/" /var/lib/postgresql/data/postgresql.conf
+RUN sed -i -e"s/^#listen_addresses =.*$/listen_addresses = '*'/"  postgresql.conf
 RUN echo "host    all    all    0.0.0.0/0    md5" >> /var/lib/postgresql/data/pg_hba.conf
 
 
