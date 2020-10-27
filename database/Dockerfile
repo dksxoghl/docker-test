@@ -1,4 +1,9 @@
-FROM postgres:9.3
+#FROM postgres:9.3
+
+FROM ubuntu:14.04
+
+RUN apt-get update
+RUN apt-get install -y postgresql-9.3
 
 ENV POSTGRES_PASSWORD password
 ENV POSTGRES_USER postgres
@@ -10,10 +15,10 @@ ENV POSTGRES_DB taehi
 ## Override default postgres config file
 #CMD ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
-RUN sed -e "s/[#]\?listen_addresses = .*/listen_addresses = '*'/g" -i '/etc/postgresql/9.3/main/postgresql.conf'
+#RUN sed -e "s/[#]\?listen_addresses = .*/listen_addresses = '*'/g" -i '/etc/postgresql/9.3/main/postgresql.conf'
 
-#WORKDIR /etc/postgresql/9.3/main
-#RUN sed -i "s/#listen_addresses='localhost'/listen_addresses='*'/g" postgresql.conf
+WORKDIR /etc/postgresql/9.3/main
+RUN sed -i "s/#listen_addresses='localhost'/listen_addresses='*'/g" postgresql.conf
 RUN echo "host all all 0.0.0.0/0 password" >> pg_hba.conf
 
 
