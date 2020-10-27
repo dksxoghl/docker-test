@@ -1,5 +1,5 @@
 #FROM postgres:9.3
-
+#cloud sql 사용하자 그냥..
 FROM ubuntu:14.04
 
 RUN apt-get update
